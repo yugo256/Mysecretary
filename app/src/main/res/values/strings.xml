@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My secretary</string>
+
+    <string-array name="list1">
+        <item>朝食</item>
+        <item>昼食</item>
+        <item>夕食</item>
+        <item>風呂</item>
+    </string-array>
+    <string-array name="list2">
+        <item>起床</item>
+        <item>就寝</item>
+    </string-array>
+</resources>
