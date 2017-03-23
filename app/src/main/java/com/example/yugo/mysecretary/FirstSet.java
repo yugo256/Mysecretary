@@ -39,7 +39,7 @@ public class FirstSet extends AppCompatActivity {
                 textView0.setText(s0 + "分");
             }else {
                 TextView textView0 = (TextView) findViewById(R.id.textView9);
-                textView0.setText(0 + "分");
+                textView0.setText( 0 + "分");
             }
             if (tmp1.getDate() != null) {
                 Date jikan1 = tmp1.getDate();
