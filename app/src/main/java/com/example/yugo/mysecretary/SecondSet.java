@@ -3,11 +3,11 @@ package com.example.yugo.mysecretary;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class schduleset extends AppCompatActivity {
+public class SecondSet extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_schduleset);
+        setContentView(R.layout.activity_secondset);
     }
 }

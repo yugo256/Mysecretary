@@ -17,7 +17,7 @@ import io.realm.RealmResults;
 
 import static com.example.yugo.mysecretary.R.id.textView11;
 
-public class firstset extends AppCompatActivity {
+public class FirstSet extends AppCompatActivity {
     RealmResults<FirstsetDB> results = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

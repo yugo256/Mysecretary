@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class Kalender extends AppCompatActivity {
+public class Calender extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kalender);
+        setContentView(R.layout.activity_calender);
     }
     //ボタンクリック時に呼び出されるメソッド//
     public void Sendtoschedule_onClick(View v){

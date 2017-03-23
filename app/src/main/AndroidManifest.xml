@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".secondset" />
         <activity android:name=".firstset" />
-        <activity android:name=".schduleset" />
+        <activity android:name=".SchduleSet" />
         <activity android:name=".Kalender" />
         <activity android:name=".Schedule" />
     </application>
