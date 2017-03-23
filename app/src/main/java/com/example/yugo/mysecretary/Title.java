@@ -20,7 +20,7 @@ public class Title extends AppCompatActivity {
     //ボタンクリック時に呼び出されるメソッド//
     public void SendtoKalender_onClick(View v){
         //Kalendarへのインテントを作成//
-        Intent i = new Intent(this, Kalender.class);
+        Intent i = new Intent(this, Calender.class);
         //アクティビティを起動//
         startActivity(i);
 
@@ -28,7 +28,7 @@ public class Title extends AppCompatActivity {
     //ボタンクリック時に呼び出されるメソッド//
     public void Sendtofirstset_onClick(View v){
         //firstsetへのインテントを作成//
-        Intent firstset = new Intent(this, firstset.class);
+        Intent firstset = new Intent(this, FirstSet.class);
         //アクティビティを起動
         startActivity(firstset);
 
