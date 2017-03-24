@@ -12,8 +12,7 @@ import io.realm.annotations.PrimaryKey;
 public class SecondTimeintervalsDB extends RealmObject {
     @PrimaryKey
     private long id;
-    private Date start;
-    private Date finish;
+    private Date intervals;
     private String title;
 
     public long getId() {
@@ -24,20 +23,12 @@ public class SecondTimeintervalsDB extends RealmObject {
         this.id = id;
     }
 
-    public Date getStart() {
-        return start;
+    public Date getIntervals() {
+        return intervals;
     }
 
-    public void setStart(Date start) {
-        this.start = start;
-    }
-
-    public Date getFinish() {
-        return finish;
-    }
-
-    public void setFinish(Date finish) {
-        this.finish = finish;
+    public void setIntervals(Date intervals) {
+        this.intervals = intervals;
     }
 
     public String getTitle() {

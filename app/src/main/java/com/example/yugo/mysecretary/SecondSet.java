@@ -6,10 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.app.TimePickerDialog;
 import android.widget.Spinner;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -54,13 +57,12 @@ public class SecondSet extends AppCompatActivity implements TimePickerDialog.OnT
                 TextView textView = (TextView) findViewById(R.id.textView19);
                 textView.setText("未設定");
             }
-        }else{
+        } else {
             TextView textView0 = (TextView) findViewById(R.id.textView17);
             TextView textView1 = (TextView) findViewById(R.id.textView19);
             textView0.setText("未設定");
             textView1.setText("未設定");
         }
-
     }
 
     public void setSleeptimeTextView(int idx, Date date) {
@@ -76,12 +78,9 @@ public class SecondSet extends AppCompatActivity implements TimePickerDialog.OnT
         }
     }
 
-
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         Spinner spinner = (Spinner)findViewById(R.id.spinner3);
-        TextView textView = (TextView)findViewById(R.id.textView4);
-
         int idx = spinner.getSelectedItemPosition();
         SleeptimeDB sleeptimeDB = new SleeptimeDB();
 
@@ -97,7 +96,6 @@ public class SecondSet extends AppCompatActivity implements TimePickerDialog.OnT
         } catch (ArrayIndexOutOfBoundsException e) {
             createSleepTime(sleeptimeDB);
         }
-
         setSleeptimeTextView(idx, sleeptime.getTime());
     }
 
@@ -124,11 +122,67 @@ public class SecondSet extends AppCompatActivity implements TimePickerDialog.OnT
         newFragment.show(getSupportFragmentManager(), "timePicker");
     }
 
+    public void SaveIntervals_onClick (View v){
+        EditText editTitle = (EditText)findViewById(R.id.editText2);
+        EditText editIntervals = (EditText)findViewById(R.id.editText3);
+
+        String title = editTitle.getText().toString();
+        String string =editIntervals.getText().toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        try{
+            Date formatdate = sdf.parse(string);
+            addSecondTimeintervalsDBs(title,formatdate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void SavePoints_onClick (View v){
+        EditText editTitle = (EditText)findViewById(R.id.editText5);
+        EditText editStart = (EditText)findViewById(R.id.editText6);
+        EditText editFinish = (EditText)findViewById(R.id.editText8);
+
+        String title = editTitle.getText().toString();
+        String string1 =editStart.getText().toString();
+        String string2 =editFinish.getText().toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        try{
+            Date formatdate1 = sdf.parse(string1);
+            Date formatdate2 = sdf.parse(string2);
+            addSecondTimepointsDBs(title,formatdate1,formatdate2);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+    //データベースの情報を取得する関数
     private RealmResults<SecondTimepointsDB> getSecondTimepointsDBs(){
         Realm realm = Realm.getInstance(this);
         RealmQuery<SecondTimepointsDB> query = realm.where(SecondTimepointsDB.class);
         return query.findAll();
     }
+
+    //情報の追加
+    private void addSecondTimepointsDBs(String title, Date start, Date finish) {
+        Realm realm = Realm.getInstance(this);
+        realm.beginTransaction();
+        Number maxId = realm.where(SecondTimeintervalsDB.class).max("id");
+        long nextId = 0;
+        if(maxId != null) nextId = maxId.longValue() + 1;
+        SecondTimepointsDB tmp = realm.createObject(SecondTimepointsDB.class);
+        tmp.setId(nextId);
+        tmp.setStart(start);
+        tmp.setFinish(finish);
+        tmp.setTitle(title);
+        realm.commitTransaction();
+    }
+    /*データベースに代入
+    private void createSecondTimepointsDBs(SecondTimepointsDB db) {
+        SecondTimepointsDB model = new SecondTimepointsDB();
+        Realm realm = Realm.getInstance(this);
+        realm.beginTransaction();
+        realm.copyToRealm(db);
+        realm.commitTransaction();
+    }*/
 
     private RealmResults<SecondTimeintervalsDB> getSecondTimeintervalsDBs(){
         Realm realm = Realm.getInstance(this);
@@ -136,10 +190,53 @@ public class SecondSet extends AppCompatActivity implements TimePickerDialog.OnT
         return query.findAll();
     }
 
+    //情報の追加
+    private void addSecondTimeintervalsDBs(String title, Date date) {
+        Realm realm = Realm.getInstance(this);
+        realm.beginTransaction();
+        Number maxId = realm.where(SecondTimeintervalsDB.class).max("id");
+        long nextId = 0;
+        if(maxId != null) nextId = maxId.longValue() + 1;
+        SecondTimeintervalsDB tmp = realm.createObject(SecondTimeintervalsDB.class);
+        tmp.setId(nextId);
+        tmp.setIntervals(date);
+        tmp.setTitle(title);
+        realm.commitTransaction();
+    }
+
+    /*private void createSecondTimeintervalsDBs(SecondTimeintervalsDB db) {
+        SecondTimeintervalsDB model = new SecondTimeintervalsDB();
+        Realm realm = Realm.getInstance(this);
+        realm.beginTransaction();
+        realm.copyToRealm(db);
+        realm.commitTransaction();
+    }*/
+
     private RealmResults<SleeptimeDB> getSleeptimeDBs() {
         Realm realm = Realm.getInstance(this);
         RealmQuery<SleeptimeDB> query = realm.where(SleeptimeDB.class);
         return query.findAll();
+    }
+
+    private void updateSleeptimeDBs(SleeptimeDB db) {
+        long idx = db.getId();
+        Date date = db.getTime();
+        String title = db.getTitle();
+
+        Realm realm = Realm.getInstance(this);
+        SleeptimeDB tmp = sleeptimeDBs.get((int)idx);
+        realm.beginTransaction();
+        tmp.setTime(date);
+        tmp.setTitle(title);
+        realm.commitTransaction();
+    }
+
+    private void createSleeptimeDBs(SleeptimeDB db) {
+        SleeptimeDB model = new SleeptimeDB();
+        Realm realm = Realm.getInstance(this);
+        realm.beginTransaction();
+        realm.copyToRealm(db);
+        realm.commitTransaction();
     }
 
     //ボタンクリック時に呼び出されるメソッド//

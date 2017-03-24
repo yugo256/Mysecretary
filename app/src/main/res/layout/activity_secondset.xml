@@ -77,7 +77,6 @@
 
             </LinearLayout>
 
-
             <TextView
                 android:text="時間間隔による入力\n以下の項目に情報を入れてください"
                 android:layout_width="match_parent"
@@ -97,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
-                android:hint="かかる時間"
+                android:hint="かかる時間\(00:00の形で入力\)"
                 android:ems="10"
                 android:id="@+id/editText3" />
 
@@ -105,7 +104,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/button4"
-                android:text="保存"/>
+                android:text="保存"
+                android:onClick="SaveIntervals_onClick"/>
 
             <TextView
                 android:text="開始時間と終了時間を指定する入力\n以下の項目に情報を入力してください"
@@ -126,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
-                android:hint="開始時間"
+                android:hint="開始時間\(00:00の形で入力\)"
                 android:ems="10"
                 android:id="@+id/editText6" />
 
@@ -134,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
-                android:hint="終了時間"
+                android:hint="終了時間\(00:00の形で入力\)"
                 android:ems="10"
                 android:id="@+id/editText8" />
 
@@ -142,7 +142,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/button5"
-                android:text="保存"/>
+                android:text="保存"
+                android:onClick="SavePoints_onClick"/>
 
             <Button
                 android:layout_width="match_parent"
