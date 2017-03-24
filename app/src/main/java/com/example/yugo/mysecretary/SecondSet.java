@@ -1,7 +1,9 @@
 package com.example.yugo.mysecretary;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -87,6 +89,14 @@ public class SecondSet extends AppCompatActivity {
         RealmQuery<SleeptimeDB> query = realm.where(SleeptimeDB.class);
 
         return query.findAll();
+    //ボタンクリック時に呼び出されるメソッド//
+     public void SendtoListView_onClick(View v);{
+        //ListViewへのインテントを作成//
+        Intent ListView = new Intent(this, ListView.class);
+        //アクティビティを起動
+        startActivity(ListView);
+    }
+
 
     }
 
