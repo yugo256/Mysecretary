@@ -14,23 +14,21 @@ public class Title extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title);
         final TextView textView = (TextView)findViewById(R.id.textView1);
-
-
     }
+
     //ボタンクリック時に呼び出されるメソッド//
-    public void SendtoKalender_onClick(View v){
-        //Kalendarへのインテントを作成//
+    public void SendToCalender_onClick(View v){
+        //Calendarへのインテントを作成//
         Intent i = new Intent(this, Calender.class);
         //アクティビティを起動//
         startActivity(i);
-
     }
+
     //ボタンクリック時に呼び出されるメソッド//
-    public void Sendtofirstset_onClick(View v){
-        //firstsetへのインテントを作成//
+    public void SendToFirstSet_onClick(View v){
+        //FirstSetへのインテントを作成//
         Intent firstset = new Intent(this, FirstSet.class);
         //アクティビティを起動
         startActivity(firstset);
-
     }
 }
