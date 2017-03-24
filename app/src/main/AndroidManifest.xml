@@ -13,15 +13,14 @@
             android:label="俺の秘書">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".secondset" />
-        <activity android:name=".firstset" />
-        <activity android:name=".SchduleSet" />
-        <activity android:name=".Kalender" />
+        <activity android:name=".Calender" />
         <activity android:name=".Schedule" />
+        <activity android:name=".FirstSet" />
+        <activity android:name=".SecondSet" />
+        <activity android:name=".ScheduleSet" />
     </application>
 
 </manifest>

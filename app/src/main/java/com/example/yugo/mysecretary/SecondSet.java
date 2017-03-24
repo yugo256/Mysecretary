@@ -75,22 +75,19 @@ public class SecondSet extends AppCompatActivity {
     }
 
     private RealmResults<SecondTimeintervalsDB> getSecondTimeintervalsDBs(){
-
         Realm realm = Realm.getInstance(this);
         RealmQuery<SecondTimeintervalsDB> query = realm.where(SecondTimeintervalsDB.class);
-
         return query.findAll();
-
     }
 
-    private RealmResults<SleeptimeDB> getSleeptimeDBs(){
-
+    private RealmResults<SleeptimeDB> getSleeptimeDBs() {
         Realm realm = Realm.getInstance(this);
         RealmQuery<SleeptimeDB> query = realm.where(SleeptimeDB.class);
-
         return query.findAll();
+    }
+
     //ボタンクリック時に呼び出されるメソッド//
-     public void SendtoListView_onClick(View v);{
+     public void SendtoListView_onClick(View v){
         //ListViewへのインテントを作成//
         Intent ListView = new Intent(this, ListView.class);
         //アクティビティを起動
@@ -98,11 +95,5 @@ public class SecondSet extends AppCompatActivity {
     }
 
 
-    }
-
-
-
-
-
-
 }
+

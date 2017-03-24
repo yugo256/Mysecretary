@@ -39,9 +39,7 @@ public class FirstsetDBAdapter extends RealmBaseAdapter<FirstsetDB> {
         }else {
             viewHolder = (ViewHolder)convertView.getTag();
         }
-
         FirstsetDB firstsetDB = realmResults.get(position);
         return null;
-
     }
 }
