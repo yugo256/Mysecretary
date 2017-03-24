@@ -19,4 +19,12 @@ public class Calender extends AppCompatActivity {
         startActivity(schedule);
 
     }
+    //ボタンクリックく時に呼び出されるメソッド//
+    public void SendtoSecondset_onClick(View v){
+        //Secondsetへのインテントを作成
+        Intent Secondset = new Intent(this, SecondSet.class);
+        //アクティビティを起動
+        startActivity(Secondset);
+
+    }
 }

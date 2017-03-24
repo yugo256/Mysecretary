@@ -37,9 +37,46 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
-                android:hint="起床・就寝の時刻"
+                android:hint="起床・就寝の時刻（分単位"
                 android:ems="10"
                 android:id="@+id/editText9" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview16"
+                    android:text="起床:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView17" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textview18"
+                    android:text="就寝:" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView19" />
+
+            </LinearLayout>
+
 
             <Button
                 android:layout_width="match_parent"
@@ -91,12 +128,6 @@
                 android:ems="10"
                 android:id="@+id/editText5" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/button5"
-                android:text="保存"/>
-
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -116,8 +147,16 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/button5"
+                android:text="保存"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/button7"
-                android:text="登録した予定の一覧/削除画面へ" />
+                android:text="登録した予定の一覧/削除画面へ"
+                android:onClick="SendtoListView_onClick"/>
+
 
         </LinearLayout>
 

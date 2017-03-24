@@ -27,7 +27,6 @@ public class FirstSet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firstset);
         results = getTestData();
-        // Log.d("MyApp", String.valueOf(results.size()));
 
         if(results != null && results.size() != 0) {
             // 初期情報の修正を行う場合
@@ -43,7 +42,7 @@ public class FirstSet extends AppCompatActivity {
                 textView0.setText(s0 + "分");
             }else {
                 TextView textView0 = (TextView) findViewById(R.id.textView9);
-                textView0.setText( 0 + "分");
+                textView0.setText( 00 + "分");
             }
             if (tmp1.getDate() != null) {
                 Date jikan1 = tmp1.getDate();
@@ -53,7 +52,7 @@ public class FirstSet extends AppCompatActivity {
                 textView1.setText(s1 + "分");
             }else{
                 TextView textView1 = (TextView) findViewById(textView11);
-                textView1.setText( 0 + "分");
+                textView1.setText( 00 + "分");
             }
             if (tmp2.getDate() != null) {
                 Date jikan2 = tmp2.getDate();
@@ -63,7 +62,7 @@ public class FirstSet extends AppCompatActivity {
                 textView2.setText(s2 + "分");
             }else{
                 TextView textView2 = (TextView) findViewById(R.id.textView13);
-                textView2.setText( 0 + "分");
+                textView2.setText( 00 + "分");
             }
             if (tmp3.getDate() != null) {
                 Date jikan3 = tmp3.getDate();
@@ -73,7 +72,7 @@ public class FirstSet extends AppCompatActivity {
                 textView3.setText(s3 + "分");
             }else{
                 TextView textView3 = (TextView) findViewById(R.id.textView15);
-                textView3.setText( 0 + "分");
+                textView3.setText( 00 + "分");
             }
         }else{
             // 初回の初期情報登録
@@ -81,10 +80,11 @@ public class FirstSet extends AppCompatActivity {
             TextView textView1 = (TextView) findViewById(R.id.textView11);
             TextView textView2 = (TextView) findViewById(R.id.textView13);
             TextView textView3 = (TextView) findViewById(R.id.textView15);
-            textView0.setText( 0 + "分");
-            textView1.setText( 0 + "分");
-            textView2.setText( 0 + "分");
-            textView3.setText (0 + "分");
+
+            textView0.setText( 00 + "分");
+            textView1.setText( 00 + "分");
+            textView2.setText( 00 + "分");
+            textView3.setText (00 + "分");
         }
     }
 
