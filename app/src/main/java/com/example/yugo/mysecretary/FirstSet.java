@@ -2,6 +2,7 @@ package com.example.yugo.mysecretary;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -18,15 +19,18 @@ import io.realm.RealmResults;
 import static com.example.yugo.mysecretary.R.id.textView11;
 
 public class FirstSet extends AppCompatActivity {
+
     RealmResults<FirstsetDB> results = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firstset);
         results = getTestData();
-
+        // Log.d("MyApp", String.valueOf(results.size()));
 
         if(results != null && results.size() != 0) {
+            // 初期情報の修正を行う場合
             FirstsetDB tmp0 = results.get(0);
             FirstsetDB tmp1 = results.get(1);
             FirstsetDB tmp2 = results.get(2);
@@ -72,47 +76,40 @@ public class FirstSet extends AppCompatActivity {
                 textView3.setText( 0 + "分");
             }
         }else{
-            FirstsetDB tmp0 = results.get(0);
-            FirstsetDB tmp1 = results.get(1);
-            FirstsetDB tmp2 = results.get(2);
-            FirstsetDB tmp3 = results.get(3);
-
+            // 初回の初期情報登録
             TextView textView0 = (TextView) findViewById(R.id.textView9);
             TextView textView1 = (TextView) findViewById(R.id.textView11);
             TextView textView2 = (TextView) findViewById(R.id.textView13);
             TextView textView3 = (TextView) findViewById(R.id.textView15);
-
             textView0.setText( 0 + "分");
             textView1.setText( 0 + "分");
             textView2.setText( 0 + "分");
             textView3.setText (0 + "分");
-
         }
-
     }
+
     //ボタンクリック時に呼び出されるメソッド
     public void TitleBack_onClick(View v){
         EditText editText = (EditText)findViewById(R.id.editText);
         Spinner spinner = (Spinner)findViewById(R.id.spinner);
+
         int idx = spinner.getSelectedItemPosition();
         FirstsetDB firstsetDB = new FirstsetDB();
 
         if(results == null || results.size() == 0){
-            //results = new  RealmResults<FirstsetDB>();
+            // 初回の初期情報登録
             firstsetDB.setId(0);
             firstsetDB.setTitle("朝食");
-            updateTestData(firstsetDB);
+            createTestdata(firstsetDB);
             firstsetDB.setId(1);
             firstsetDB.setTitle("昼食");
-            updateTestData(firstsetDB);
+            createTestdata(firstsetDB);
             firstsetDB.setId(2);
             firstsetDB.setTitle("夕食");
-            updateTestData(firstsetDB);
+            createTestdata(firstsetDB);
             firstsetDB.setId(3);
             firstsetDB.setTitle("風呂");
-            updateTestData(firstsetDB);
-
-        }else{
+            createTestdata(firstsetDB);
         }
 
         String string = editText.getText().toString();
@@ -155,46 +152,31 @@ public class FirstSet extends AppCompatActivity {
 
         }
         editText.getEditableText().clear();
-
     }
-    private RealmResults<FirstsetDB> getTestData(){
 
+    private RealmResults<FirstsetDB> getTestData(){
         Realm realm = Realm.getInstance(this);
         RealmQuery<FirstsetDB> query = realm.where(FirstsetDB.class);
-
         return query.findAll();
-
     }
 
     private void updateTestData(FirstsetDB db) {
         long idx = db.getId();
         Date date = db.getDate();
-        String title = db.getTitle();
 
         Realm realm = Realm.getInstance(this);
         FirstsetDB tmp = results.get((int)idx);
-
         realm.beginTransaction();
         tmp.setDate(date);
         realm.commitTransaction();
-
     }
-    private void addTestdataBestVer(long id, Date date, String title) {
 
+    private void createTestdata(FirstsetDB db) {
         FirstsetDB model = new FirstsetDB();
-        model.setId(id);
-        model.setDate(date);
-        model.setTitle(title);
-
-
-        addTestDataBestVer(model);
-    }
-    private void addTestDataBestVer(FirstsetDB model) {
-
         Realm realm = Realm.getInstance(this);
-
         realm.beginTransaction();
-        realm.copyToRealm(model);
+        realm.copyToRealm(db);
         realm.commitTransaction();
     }
+
 }
