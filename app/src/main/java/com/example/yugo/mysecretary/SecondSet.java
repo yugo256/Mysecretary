@@ -35,30 +35,30 @@ public class SecondSet extends AppCompatActivity {
             SleeptimeDB tmp1 = sleeptimeDBs.get(1);
             if (tmp0.getTime() != null) {
                 Date jikan = tmp0.getTime();
-                SimpleDateFormat sdf = new SimpleDateFormat("mm");
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
                 String s = sdf.format(jikan);
                 TextView textView = (TextView) findViewById(R.id.textView17);
                 textView.setText(s + "分");
             } else {
                 TextView textView = (TextView) findViewById(R.id.textView17);
-                textView.setText(00 + "分");
+                textView.setText("00:00");
             }
             if (tmp1.getTime() != null) {
                 Date jikan = tmp1.getTime();
-                SimpleDateFormat sdf = new SimpleDateFormat("mm");
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
                 String s = sdf.format(jikan);
                 TextView textView = (TextView) findViewById(R.id.textView19);
                 textView.setText(s + "分");
             } else {
                 TextView textView = (TextView) findViewById(R.id.textView19);
-                textView.setText(00 + "分");
+                textView.setText("00:00");
             }
         } else {
             TextView textView0 = (TextView) findViewById(R.id.textView17);
             TextView textView1 = (TextView) findViewById(R.id.textView19);
 
-            textView0.setText(00 + "分");
-            textView1.setText(00 + "分");
+            textView0.setText("00:00");
+            textView1.setText("00:00");
 
         }
 
@@ -81,7 +81,7 @@ public class SecondSet extends AppCompatActivity {
         }
 
         String string = editText.getText().toString();
-        SimpleDateFormat sdf = new SimpleDateFormat("mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         try{
             Date formatdate = sdf.parse(string);
             TextView textView = null;
@@ -97,7 +97,7 @@ public class SecondSet extends AppCompatActivity {
                 textView = (TextView)findViewById(R.id.textView19);
             }else;
             updateSleeptimeDBs(sleeptimeDB);
-            textView.setText(string +"分");
+            textView.setText(string);
         }catch (ParseException e){
 
         }
@@ -224,11 +224,11 @@ public class SecondSet extends AppCompatActivity {
     }
 
     //ボタンクリック時に呼び出されるメソッド//
-     public void SendtoListView_onClick(View v){
+     public void SendtoDeletePlan_onClick(View v){
         //ListViewへのインテントを作成//
-        Intent ListView = new Intent(this, ListView.class);
+        Intent deleteplan = new Intent(this, DeletePlan.class);
         //アクティビティを起動
-        startActivity(ListView);
+        startActivity(deleteplan);
     }
 
 

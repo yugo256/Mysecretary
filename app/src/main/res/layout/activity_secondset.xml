@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
-                android:hint="起床・就寝の時刻\(分単位\)"
+                android:hint="起床・就寝の時刻(00:00の形で入力)"
                 android:ems="10"
                 android:id="@+id/editText9" />
 
@@ -104,7 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
-                android:hint="かかる時間\(00:00の形で入力\)"
+                android:hint="かかる時間(00:00の形で入力)"
                 android:ems="10"
                 android:id="@+id/editText3" />
 
@@ -134,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
-                android:hint="開始時間\(00:00の形で入力\)"
+                android:hint="開始時間(00:00の形で入力)"
                 android:ems="10"
                 android:id="@+id/editText6" />
 
@@ -142,7 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
-                android:hint="終了時間\(00:00の形で入力\)"
+                android:hint="終了時間(00:00の形で入力)"
                 android:ems="10"
                 android:id="@+id/editText8" />
 
@@ -158,7 +158,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/button7"
                 android:text="登録した予定の一覧/削除画面へ"
-                android:onClick="SendtoListView_onClick"/>
+                android:onClick="SendtoDeletePlan_onClick"/>
 
 
         </LinearLayout>

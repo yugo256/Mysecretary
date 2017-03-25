@@ -21,6 +21,7 @@
         <activity android:name=".FirstSet" />
         <activity android:name=".SecondSet" />
         <activity android:name=".ScheduleSet" />
+        <activity android:name=".DeletePlan" />
     </application>
 
 </manifest>
