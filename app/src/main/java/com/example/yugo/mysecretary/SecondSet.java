@@ -50,7 +50,7 @@ public class SecondSet extends AppCompatActivity implements
             SleeptimeDB tmp0 = sleeptimeDBs.get(0);
             SleeptimeDB tmp1 = sleeptimeDBs.get(1);
             if (tmp0.getTime() != null) {
-                Date jikan = tmp0.getTime();
+                Date jikan = tmp0.getTime()
                 setSleeptimeTextView(0, jikan);
             } else {
                 TextView textView = (TextView) findViewById(R.id.textView17);
@@ -66,6 +66,7 @@ public class SecondSet extends AppCompatActivity implements
         } else {
             TextView textView0 = (TextView) findViewById(R.id.textView17);
             TextView textView1 = (TextView) findViewById(R.id.textView19);
+          
             textView0.setText("未設定");
             textView1.setText("未設定");
         }
@@ -105,6 +106,8 @@ public class SecondSet extends AppCompatActivity implements
         setSleeptimeTextView(idx, sleeptime.getTime());
     }
 
+
+    
     @Override
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
         TextView textView = (TextView) findViewById(R.id.textView4);
@@ -282,11 +285,16 @@ public class SecondSet extends AppCompatActivity implements
     }
 
     //ボタンクリック時に呼び出されるメソッド//
-     public void SendtoListView_onClick(View v){
+     public void SendtoDeletePlan_onClick(View v){
         //ListViewへのインテントを作成//
-        Intent ListView = new Intent(this, ListView.class);
+        Intent deleteplan = new Intent(this, DeletePlan.class);
         //アクティビティを起動
-        startActivity(ListView);
+        startActivity(deleteplan);
+    }
+
+    public void SendtoDeletePlan2_onClick(View v){
+        Intent deleteplan = new Intent(this, DeletePlan2.class);
+        startActivity(deleteplan);
     }
 
 }

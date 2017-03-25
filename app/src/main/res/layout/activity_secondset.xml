@@ -34,6 +34,7 @@
                 android:layout_marginTop="12dp"
                 android:entries="@array/list2"/>
 
+               
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
@@ -96,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
-                android:hint="かかる時間\(00:00の形で入力\)"
+                android:hint="かかる時間(00:00の形で入力)"
                 android:ems="10"
                 android:id="@+id/editText3" />
 
@@ -106,6 +107,13 @@
                 android:id="@+id/button4"
                 android:text="保存"
                 android:onClick="SaveIntervals_onClick"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button9"
+                android:text="登録した予定の一覧/削除画面へ"
+                android:onClick="SendtoDeletePlan2_onClick_onClick"/>
 
             <TextView
                 android:text="開始時間と終了時間を指定する入力\n以下の項目に情報を入力してください"
@@ -139,7 +147,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
-                android:hint="開始時間\(00:00の形で入力\)"
+                android:hint="開始時間(00:00の形で入力)"
                 android:ems="10"
                 android:id="@+id/editText6" />
 
@@ -147,7 +155,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
-                android:hint="終了時間\(00:00の形で入力\)"
+                android:hint="終了時間(00:00の形で入力)"
                 android:ems="10"
                 android:id="@+id/editText8" />
 
@@ -163,7 +171,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/button7"
                 android:text="登録した予定の一覧/削除画面へ"
-                android:onClick="SendtoListView_onClick"/>
+                android:onClick="SendtoDeletePlan_onClick"/>
 
 
         </LinearLayout>
