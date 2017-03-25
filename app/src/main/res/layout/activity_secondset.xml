@@ -115,6 +115,13 @@
                 android:text="保存"
                 android:onClick="SaveIntervals_onClick"/>
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button9"
+                android:text="登録した予定の一覧/削除画面へ"
+                android:onClick="SendtoDeletePlan2_onClick_onClick"/>
+
             <TextView
                 android:text="開始時間と終了時間を指定する入力\n以下の項目に情報を入力してください"
                 android:layout_width="match_parent"

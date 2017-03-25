@@ -9,23 +9,19 @@ import android.widget.ListView;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
-/**
- * Created by kousei on 2017/03/24.
- */
-
-public class DeletePlan extends AppCompatActivity {
+public class DeletePlan2 extends AppCompatActivity {
     ListView listView;
 
     @Override
-    protected  void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dereteplan);
+        setContentView(R.layout.activity_delete_plan2);
 
         listView = (ListView)findViewById(R.id.select);
 
         Realm realm = Realm.getInstance(this);
-        RealmResults<SecondTimepointsDB> secondTimepointsDBs = realm.where(SecondTimepointsDB.class).findAll();
-        STPDB_Adapter adapter = new STPDB_Adapter(this, secondTimepointsDBs, true);
+        RealmResults<SecondTimeintervalsDB> secondTimeintervalsDBs = realm.where(SecondTimeintervalsDB.class).findAll();
+        STIDB_Adapter adapter =new STIDB_Adapter(this, secondTimeintervalsDBs, true);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -41,7 +37,7 @@ public class DeletePlan extends AppCompatActivity {
 
     private void deleteTestData(long id) {
         Realm realm = Realm.getInstance(this);
-        RealmResults<SecondTimepointsDB> query = realm.where(SecondTimepointsDB.class)
+        RealmResults<SecondTimeintervalsDB> query = realm.where(SecondTimeintervalsDB.class)
                 .equalTo("id" , id)
                 .findAll();
 

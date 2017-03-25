@@ -231,6 +231,11 @@ public class SecondSet extends AppCompatActivity {
         startActivity(deleteplan);
     }
 
+    public void SendtoDeletePlan2_onClick(View v){
+        Intent deleteplan = new Intent(this, DeletePlan2.class);
+        startActivity(deleteplan);
+    }
+
 
 
 
