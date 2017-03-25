@@ -18,7 +18,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <TextView
                 android:text="起床・就寝の時間入力"
@@ -33,13 +34,13 @@
                 android:layout_marginTop="12dp"
                 android:entries="@array/list2"/>
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="time"
-                android:hint="起床・就寝の時刻(00:00の形で入力)"
-                android:ems="10"
-                android:id="@+id/editText9" />
+               
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:onClick="showTimePickerDialog"
+                android:layout_height="37dp"
+                android:text="時刻を選択" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -76,14 +77,6 @@
                     android:id="@+id/textView19" />
 
             </LinearLayout>
-
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/button6"
-                android:text="保存"
-                android:onClick="SaveSleep_onClick"/>
 
             <TextView
                 android:text="時間間隔による入力\n以下の項目に情報を入れてください"
@@ -136,6 +129,19 @@
                 android:hint="この日の用事"
                 android:ems="10"
                 android:id="@+id/editText5" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:onClick="showDatePickerDialog"
+                android:layout_height="37dp"
+                android:text="日時を選択" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="" />
 
             <EditText
                 android:layout_width="match_parent"
