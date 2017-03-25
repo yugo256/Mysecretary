@@ -122,6 +122,19 @@
                 android:ems="10"
                 android:id="@+id/editText5" />
 
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:onClick="showDatePickerDialog"
+                android:layout_height="37dp"
+                android:text="日時を選択" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="" />
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
